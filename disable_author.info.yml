@@ -1,0 +1,6 @@
+name: Disable Author
+type: module
+description: This module should disable show author info in node edit page
+package: disable_author
+author: Mahmood Afzalzadeh
+core: 8.x

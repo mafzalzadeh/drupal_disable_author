@@ -1,0 +1,18 @@
+<?php
+
+function disable_author_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+
+  // Node author information for administrators.
+  if ($form_id == 'node_product_form' || 'node_product_edit_form') {
+    $config_roles = Drupal::config('disable_author.settings')
+      ->get()['disallowed_roles'];
+    //    die(var_dump($config_roles));
+    $user = \Drupal::currentUser();
+    $user = \Drupal\user\Entity\User::load($user->id());
+    if (array_intersect($user->getRoles(), $config_roles)) {
+
+      hide($form['author']);
+
+    }
+  }
+}

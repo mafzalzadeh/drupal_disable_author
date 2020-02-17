@@ -1,0 +1,6 @@
+disable_author.admin_settings_form:
+  title: 'Disable Author configuration'
+  route_name: disable_author.admin_settings_form
+  description: 'Disable Author admin'
+  parent: system.admin_config_system
+  weight: 99

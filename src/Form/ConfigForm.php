@@ -1,19 +1,15 @@
 <?php
 
-
-/**
- * @file
- * Contains Drupal\welcome\Form\MessagesForm.
- */
-
-
 namespace Drupal\disable_author\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\user\Entity\Role;
 
-
+/**
+ * Class ConfigForm.
+ *
+ * @package Drupal\disable_author\Form
+ */
 class ConfigForm extends ConfigFormBase {
 
   /**
@@ -59,11 +55,10 @@ class ConfigForm extends ConfigFormBase {
     $disallowed_roles = array_filter($form_state->getValue('roles'));
     sort($disallowed_roles);
     $this->config('disable_author.settings')
-      ->set('disallowed_roles',$disallowed_roles)
-    ->save();
+      ->set('disallowed_roles', $disallowed_roles)
+      ->save();
     parent::submitForm($form, $form_state);
 
   }
-
 
 }
